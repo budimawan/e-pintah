@@ -1,0 +1,133 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>E-LAYANAN</title>
+  <link rel="shortcut icon" href="<?= base_url(''); ?>assets/images/favicon.png" />
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">   
+      <style>
+            table, th, td {
+                  border: 0px solid black;
+                  border-collapse: collapse;
+            }
+            strong{
+                  text-align: center ;    
+            }
+      </style>
+</head>
+
+<body onload="window.focus();window.print();"> 
+    <div id="print">
+  <table>
+      <thead>
+        <tr>
+          <td scope="col" colspan="4"><?php
+            $tgl=date('d M Y');
+            echo $pengajuan['letak_kec'] . ", " . $tgl;
+            ?></td>
+        </tr>
+      </thead>
+      <tbody style="border: 0px;">
+        <tr>
+          <td class="border" scope="col" colspan="4"><center><strong>PERMOHONAN HAK PAKAI</strong></center></td>
+        </tr>
+        <tr>
+          <td colspan="4"><p>Yang bertanda tangan di bawah ini kami, <strong><?= $pengajuan['nama_lengkap'] ?></strong> alamat Desa/Kel <strong><?= $pengajuan['kelurahan'] ?></strong> Kecamatan <strong><?= $pengajuan['kecamatan'] ?></strong> dalam hal ini bertindak untuk dan atas nama pribadi/instansi, dengan ini mengajukan permohonan Hak Pakai dengan keterangan sebagai berikut :</p></td>
+        </tr>
+        <tr>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <td >1. Nama lengkap ( jangan disingkat )</td>
+          <td colspan="3"> : <?= $pengajuan['nama_lengkap'] ?></td>
+        </tr>
+        <tr>
+          <td >2. Kartu Tanda Penduduk</td>
+          <td colspan="3"> : <?= $pengajuan['ktp_no'] ?></td>
+        </tr>  
+        <tr>
+          <td colspan="4"> LETAK TANAH : </td>
+        </tr>
+        <tr>
+          <td >3. Desa/Kelurahan</td>
+          <td colspan="3"> : <?= $pengajuan['letak_kel'] ?></td>
+        </tr>
+        <tr>
+          <td >4. Kecamatan</td>
+          <td colspan="3"> : <?= $pengajuan['letak_kec'] ?></td>
+        </tr>
+        <tr>
+          <td >5. Kota/Kabupaten</td>
+          <td colspan="3"> : <?= $pengajuan['letak_kab'] ?></td>
+        </tr>
+        <tr>
+          <td >6. Luas</td>
+          <td colspan="3"> : <?= $pengajuan['luas'] ?></td>
+        </tr> 
+        <tr>
+          <td colspan="4">SURAT-SURAT YANG PERLU DILAMPIRKAN :</td>
+        </tr>
+        <tr>
+          <td >#. Foto copy KTP / Surat Tanda</td>
+          <td colspan="3"> : <?php if ($pengajuan['status'] == "2"){
+            echo "registered";
+            } else {
+              echo "not registered";}?> </td>
+        </tr>
+        <tr>
+          <td >#. Surat Bukti perolehan/penguasaan tanah</td>
+          <td colspan="3"> : <?php if ($pengajuan['status'] == "2"){
+            echo "registered";
+            } else {
+              echo "not registered";}?> </td>
+        </tr>
+        <tr>
+          <td >#. Surat Pernyataan Asset</td>
+          <td colspan="3"> : <?php if ($pengajuan['status'] == "2"){
+            echo "registered";
+            } else {
+              echo "not registered";}?> </td>
+        </tr>
+        <tr>
+          <td >#. Surat-Surat /Data Pendudukung Lainnya</td>
+          <td colspan="3"> : <?php if ($pengajuan['status'] == "2"){
+            echo "registered";
+            } else {
+              echo "not registered";}?> </td>
+        </tr>
+        <tr>
+          <td colspan="4"></td>
+        </tr> 
+        <tr>
+          <td colspan="4"><p>Apabila permohonan tersebut dikabulkan pemohon bersedia memenuhi/mematuhi syarat-syarat yang telah dan akan ditetapkan oleh pemerintah. Demikian keterangan dalam permohonan ini dibuat dengan sebenarnnya dan kami bertanggung jawab bilamana memberikan keterangan yang tidak benar dapat dituntut di hadapan yang berwajib. </p></td>
+        </tr>
+        <tr>
+          <td colspan="3"> <italic> <small></small> </italic> </td>
+          <td ><center>Tanda tangan pemohon</center></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <img src="http://localhost/e-pintah/assets/QRCODE/<?php echo $pengajuan['qr_image_name']?>">
+            </td>
+          <td ><center><?= $pengajuan['nama_lengkap'] ?></center></td>
+        </tr>
+        <tr>
+          <td colspan="3"> <italic> <small> <?= $pengajuan['tgl_ajuan'] ?> </small> </italic> </td>
+          <td ><center></center></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    
+    <script>
+      function closeWin() {
+      myWindow.close();
+      }     
+    </script>
+
+</body>
+
+</html>
+
